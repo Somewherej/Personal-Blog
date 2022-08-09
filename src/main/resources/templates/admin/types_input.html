@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+    <title>分类新增</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/my.css">
+</head>
+
+
+
+
+
+
+<body>
+
+<!--导航-->
+<nav class="ui inverted attached segment my-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu">
+            <!--stackable可堆叠的，方便手机端使用-->
+            <h2 class="ui teal header item">管理后台</h2>
+            <a href="#" class="item"><i class ="home icon"> </i>首页</a>
+            <a href="#" class="item"><i class ="idea icon"> </i>分类</a>
+            <a href="#" class="item"><i class ="tags icon"> </i>标签</a>
+            <div class="right menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image"  src="../../static/images/capitulate.gif">
+                    </div>
+                    <i class="dropdown icon"> </i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--二级导航-->
+<nav>
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+               <a href="#"  th:href="@{/admin/types}" class="active item">列表</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<!--主体内容-->
+<div class="my-padded-tb-big">
+    <div class="ui container">
+        <form action="#" method="post" th:action="*{id}==null ? @{/admin/types}:@{/admin/types/{id}(id=*{id})}">
+            <input type="hidden" name="id" th:value="*{id}">
+            <div class="required field">
+                <!--分类名称-->
+                <div class="ui left labeled input">
+                    <label class="ui compact basic label">分类</label>
+                    <input type="text" name="name" placeholder="分类名称">
+                </div>
+            </div>
+
+
+            <br><br>
+
+            <div class="ui right aligned container">
+                <button type="button" class="ui secondary button" onclick="window.history.go(-1)">返回</button>
+                <button class="ui secondary submit button">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<!--
+<footer class="ui inverted vertical segment my-padded-tb">
+    <div class="ui center aligned container">
+        <div>
+            <p class="my-text-thin my-opacity-mini my-text-spaced my-text-lined">
+                Copyright © 2022 Somewhere Incorporated. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+底部-->
+
+
+
+<script type="text/javascript" src="../../static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.ui.dropdown').dropdown();
+    });
+
+
+
+</script>
+
+
+</body>
+</html>
